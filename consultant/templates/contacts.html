@@ -1,0 +1,71 @@
+
+
+
+
+
+<form action="" method="post" role="form" class="php-email-form" novalidate>
+    {% csrf_token %}
+    {{form.non_field_errors}}
+    {{form.source_errors}}
+    {{form.source}}
+
+
+
+
+
+
+
+              <div class="row">
+
+                <div class="col-md-6 form-group">
+                    <div class="form-control" id="name">
+                        {{form.name.label_tag}}
+                        {{form.name.errors}}
+                        {{form.name}}
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                    <div class="form-control" id="email">
+                        {{form.email.label_tag}}
+                        {{form.email.errors}}
+                        {{form.email}}
+                    </div>
+                </div>
+              </div>
+
+              <div class="form-group mt-3">
+                       <div class="form-control" id="subject">
+                        {{form.subject.label_tag}}
+                        {{form.subject.errors}}
+                        {{form.subject}}
+                    </div>
+              </div>
+
+
+              <div class="form-group mt-3">
+                      <div class="form-group mt-3">
+                       <div class="form-control" id="messagess">
+                        {{form.messagess.label_tag}}
+                        {{form.messagess.errors}}
+                        {{form.messagess}}
+                    </div>
+
+              </div>
+
+     <div class="form-group mt-3">
+                       <div class="form-control" id="subject">
+                        {{form.cv.label_tag}}
+                        {{form.cv.errors}}
+                        {{form.cv}}
+                    </div>
+              </div>          </div>
+
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>

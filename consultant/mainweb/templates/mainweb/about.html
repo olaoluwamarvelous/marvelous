@@ -1,0 +1,38 @@
+{% extends 'main.html' %}
+{% block content %}
+{% load static %}
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>About</h2>
+          <ol>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li>About</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Brneadcrumbs -->
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about-us" class="about-us">
+
+      {% include 'mainweb/itabout.html' %}
+    </section><!-- End About Us Section -->
+
+
+
+    <!-- ======= Our Skills Section ======= -->
+
+
+    <!-- ======= Our Clients Section ======= -->
+
+  </main><!-- End #main -->
+
+
+  {% endblock %}

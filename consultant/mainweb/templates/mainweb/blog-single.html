@@ -1,0 +1,123 @@
+{% extends 'main.html' %}
+{% block content %}
+   {% load crispy_forms_tags %}
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Blog Single</h2>
+          <ol>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'blog' %}">Blog</a></li>
+            <li>Blog Single</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Single Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+
+          <div class="col-lg-8 entries">
+
+            <article class="entry entry-single">
+
+              <div class="entry-img">
+                <img src="{{post.photo.url}}" alt="" class="img-fluid">
+              </div>
+
+
+
+              <div class="entry-meta">
+                <ul>
+
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i>
+                    <a href="blog-single.html"><time datetime="2020-01-01">{{post.date_added|timesince}}</time></a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="#">12 Comments</a></li>
+                </ul>
+              </div>
+
+              <div class="entry-content">
+                <p>
+                {{post.intro}}
+                </p>
+
+
+
+                <blockquote>
+                                <div class="entry-content">
+
+                  <p>
+                      {{post.mblockquote}}
+
+                  </p>
+                                                </div>
+
+                                                <div class="entry-content">
+
+
+                </blockquote>
+              </div>
+
+
+              <div class="entry-content">
+
+                <p>{{post.Body}}</p>
+
+              </div>
+            </article><!-- End blog entry -->
+
+
+            div class="blog-comments">
+
+              <h4 class="comments-count">8 Comments</h4>
+                {% for comment in post.comments.all %}
+              <div id="comment-1" class="comment">
+
+                    <h5><a href="">{{comment.name}}</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> COMMENTED</a></h5>
+                    <time datetime="2020-01-01">{{comment.created|timesince}} ago</time>
+                    <p>
+                      {{comment.body}}
+                    </p>
+                  </div>
+                </div>
+              </div><!-- End comment #1 -->
+
+              {% empty %}
+            <h5>no comment yet</h5>
+              {% endfor %}
+
+
+            <form method="POST" action="">
+              {% csrf_token %}
+              {{form|crispy}}
+
+                <button class="btn btn-primary my-4" type="submit">add comment</button>
+
+
+            </form>
+
+              </div>
+
+            </div><!-- End blog comments -->
+
+          </div><!-- End blog entries list -->
+
+
+
+        </div>
+
+      </div>
+    </section><!-- End Blog Single Section -->
+
+  </main><!-- End #main -->
+
+  {% endblock %}
